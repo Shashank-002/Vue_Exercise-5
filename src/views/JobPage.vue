@@ -6,7 +6,9 @@
                 <div class="jobs-list">
                     <div v-for="job in jobs" :key="job.id" class="job-card">
                         <router-link :to="`/jobs/${job.id}`" class="job-link">
-                            {{ job.title }}
+                            <div class="job-card-content">
+                                {{ job.title }}
+                            </div>
                         </router-link>
                     </div>
                 </div>
@@ -80,6 +82,16 @@ export default {
 
 .job-link:hover {
     color: #0f172a;
+}
+
+.job-card-content {
+    font-size: 1.5rem;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.job-card-content:hover {
+    color: #0f172a; 
 }
 
 @media (max-width:325px) {
