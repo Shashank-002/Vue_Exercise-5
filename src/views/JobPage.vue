@@ -1,27 +1,40 @@
 <template>
-    <div class="jobs-page">
-        <h1 class="jobs-title">Jobs</h1>
-        <div class="jobs-list">
-            <div v-for="job in jobs" :key="job.id" class="job-card">
-                <router-link :to="'/jobs/' + job.id" class="job-link">
-                    {{ job.title }}
-                </router-link>
+    <div>
+        <div v-if="!JobDetailPage" class="jobs-page">
+            <h1 class="jobs-title">Jobs</h1>
+            <div>
+                <div class="jobs-list">
+                    <div v-for="job in jobs" :key="job.id" class="job-card">
+                        <router-link :to="`/jobs/${job.id}`" class="job-link">
+                            {{ job.title }}
+                        </router-link>
+                    </div>
+                </div>
             </div>
         </div>
+        <router-view />
     </div>
 </template>
 
 <script>
+import JobsData from '../data/jobs.json';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
 export default {
     name: 'JobPage',
     data() {
         return {
-            jobs: [
-                { title: 'Ninja UX Designer', id: 1, details: ' A highly skilled professional with expertise in creating user-centered designs that blend creativity with functionality.' },
-                { title: 'Ninja Web Developer', id: 2, details: 'A Ninja Web Developer is a master of web technologies, skilled at creating dynamic, responsive, and scalable websites and web applications' },
-                { title: 'Ninja Vue Developer', id: 3, details: 'A Ninja Vue Developer is an expert in building interactive, high-performing web applications using Vue.js, a progressive JavaScript framework. ' }
-            ]
+            jobs: JobsData
         };
+    },
+    setup() {
+        const route = useRoute();
+        const JobDetailPage = computed(() => {
+            return route.name === 'JobDetail';
+        });
+
+        return { JobDetailPage };
     }
 };
 </script>
