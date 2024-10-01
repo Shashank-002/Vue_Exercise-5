@@ -2,9 +2,14 @@
     <div>
         <h1>Job Details</h1>
         <div class="job-details">
-            <p>Job ID: <span>{{ jobId }}</span></p>
-            <p>Job Title: <span>{{ job.title }}</span></p>
-            <p>Job Details: <span>{{ job.details }}</span></p>
+            <div v-if="job">
+                <p>Job ID: <span>{{ jobId }}</span></p>
+                <p>Job Title: <span>{{ job.title }}</span></p>
+                <p>Job Details: <span>{{ job.details }}</span></p>
+            </div>
+            <div v-else class="job-not-found-message">
+                <p>Job Not Found</p>
+            </div>
             <button @click="$router.push('/jobs')" class="back-button">Back to Jobs</button>
         </div>
     </div>
@@ -18,7 +23,7 @@ export default {
         return {
             jobId: this.$route.params.id,
             jobs: JobsData,
-            job: {}
+            job: null
         };
     },
     mounted() {
@@ -43,6 +48,19 @@ h1 {
 
 .job-details:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.job-not-found-message {
+    background-color: gray;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ef4444;
 }
 
 p {

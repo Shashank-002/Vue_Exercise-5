@@ -27,7 +27,7 @@ nav a {
 nav a:not(:last-child)::after {
   content: "";
   position: absolute;
-  right: 0;
+  right: -10px;
   top: 50%;
   transform: translateY(-50%);
   height: 60%;

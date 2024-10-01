@@ -91,7 +91,7 @@ export default {
 }
 
 .job-card-content:hover {
-    color: #0f172a; 
+    color: #0f172a;
 }
 
 @media (max-width:325px) {
