@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Ninja UX Designer",
+    "id": 1,
+    "details": "A highly skilled professional with expertise in creating user-centered designs that blend creativity with functionality."
+  },
+  {
+    "title": "Ninja Web Developer",
+    "id": 2,
+    "details": "A Ninja Web Developer is a master of web technologies, skilled at creating dynamic, responsive, and scalable websites and web applications."
+  },
+  {
+    "title": "Ninja Vue Developer",
+    "id": 3,
+    "details": "A Ninja Vue Developer is an expert in building interactive, high-performing web applications using Vue.js, a progressive JavaScript framework."
+  }
+]
